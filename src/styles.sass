@@ -1,1 +1,67 @@
 /* You can add global styles to this file, and also import other style files */
+
+$header-height: 80px
+$profile-size: 35px
+$primary-color: #264653
+$secondary-color: #2A9D8F
+$primary-color-dark: #264653
+$primary-color-light: #2A9D8F
+$secondary-color-accent1: #E9C46A
+$secondary-color-accent2: #F4A261
+$secondary-color-accent3: #E76F51
+
+body
+    background-color: lighten($secondary-color-accent3, 10%)
+
+.test
+    color: red
+
+.header
+    color: red
+    display: flex
+    justify-content: space-between
+    align-items: center
+    height: $header-height
+    background-color: $primary-color-dark
+    .logo, .profile-settings
+        display: flex
+        justify-content: center
+        align-items: center
+        width: $profile-size
+        height: $profile-size
+        background-color: darken($primary-color-dark, 10%)
+
+.welcome-banner
+    text-align: center
+    background-color: lighten($primary-color, 15%)
+    padding: 20px
+    h1
+        color: white
+    p
+        color: white
+        margin-bottom: 20px
+    .start-journey-btn
+        background-color: $secondary-color-accent3
+        border: none
+        padding: 10px 20px
+        color: white
+        border-radius: 5px
+        cursor: pointer
+        &:hover
+            background-color: darken($primary-color-light, 10%)
+
+.recent-trips
+    padding: 20px
+    h2
+        color: $primary-color
+
+.trip-card
+    background-color: white
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2)
+    padding: 20px
+    margin-top: 20px
+
+    .thumbnail
+        background-color: gray
+        width: 200px
+        height: 100px
