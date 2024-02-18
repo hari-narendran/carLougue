@@ -1,15 +1,17 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { HomeScreenComponent } from './home-screen/home-screen.component';
-import { LoggingScreenComponent } from './logging-screen/logging-screen.component';
+import { TodosComponent } from './todos/todos.component';
+import { CommonModule } from '@angular/common';
+import {  } from '@angular/platform-browser';
+import { CarsSearchComponent } from './cars-search/cars-search.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HomeScreenComponent, LoggingScreenComponent],
+  imports: [CommonModule, RouterOutlet, TodosComponent, CarsSearchComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.sass'
+  styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'carLougue';
+  title = 'todoSignals';
 }

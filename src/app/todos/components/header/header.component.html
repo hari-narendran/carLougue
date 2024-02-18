@@ -1,0 +1,12 @@
+<header class="header">
+    <h1>CarLogue</h1>
+    <input 
+        type="text"
+        class="new-todo"
+        autofocus
+        placeholder="wroom wroom ..."
+        [value]="text"
+        (keypress)="changeText($event)"
+        (keyup.enter)="searchCar()"
+    >
+</header>
