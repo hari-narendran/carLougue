@@ -75,7 +75,7 @@ body {
   font-size: 80px;
   font-weight: 200;
   text-align: center;
-  color: #b83f45;
+  color: #e76f51;
   -webkit-text-rendering: optimizeLegibility;
   -moz-text-rendering: optimizeLegibility;
   text-rendering: optimizeLegibility;
@@ -518,4 +518,72 @@ hr {
   .learn-bar > .learn {
     left: 8px;
   }
+}
+
+
+
+.search-container {
+  background: white;
+  width: 100%;
+  /* max-width: 350px; */
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.search-box {
+  display: flex;
+  border-bottom: 1px solid #eee;
+}
+
+.search-box input[type="text"] {
+  flex: 1;
+  border: none;
+  padding: 15px;
+  font-size: 16px;
+}
+
+.search-box button {
+  border: none;
+  background: none;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.results-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.result-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.profile-pic, .file-icon {
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.result-text .name {
+  font-weight: bold;
+}
+
+.result-text .status {
+  color: #888;
+}
+
+.result-text .status.active {
+  color: green;
+}
+
+.result-text .file-name {
+  font-weight: bold;
+}
+
+.result-text .file-shared {
+  color: #888;
 }

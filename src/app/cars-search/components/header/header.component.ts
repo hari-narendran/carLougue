@@ -1,18 +1,22 @@
 import { Component, EventEmitter, inject } from '@angular/core';
 import { CarService } from '../../services/car.service';
 import { debounceTime } from 'rxjs';
+import { Car } from '../../models/car.interface';
+import { CarmakesService } from '../../services/carmakes.service';
 
 @Component({
   selector: 'app-todos-header',
   templateUrl: './header.component.html',
-  providers: [CarService],
+  // providers: [CarService, CarmakesService],
   standalone: true,
 })
 export class HeaderComponent {
   carService = inject(CarService);
+  carmakesService = inject(CarmakesService)
   carData = this.carService.carSignal;
   searchText = '';
   keyEvents: EventEmitter<any> = new EventEmitter();
+  selectedCars = []
 
   changeText(event: Event) {
     console.log('key ...');
@@ -33,10 +37,15 @@ export class HeaderComponent {
     console.log(this.carService);
     this.carService.searchCars(this.searchText);
   }
-  ngOnInit() {
-    /* this.keyEvents.pipe(debounceTime(1000)).subscribe(searchText => {
-        console.log(searchText)
-        this.carService.searchCars(searchText)
-    }) */
+  
+  clearSearch(){
+    this.searchText = '';
+    this.carService.clearCarSignal();
+  }
+
+  addCar(carmake: Car){
+    console.log(carmake)
+    this.carmakesService.addCar(carmake)
+    console.log(this.carmakesService.getCar())
   }
 }

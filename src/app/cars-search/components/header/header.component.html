@@ -1,15 +1,31 @@
 <header class="header">
   <h1>CarLogue</h1>
-  <input
-    type="text"
-    class="new-todo"
-    autofocus
-    placeholder="wroom wroom ..."
-    [value]="searchText"
-    (keypress)="changeText($event)"
-    (keyup.enter)="searchCar()"
-  />
-  @for (item of carData(); track item._id) {
-  <li>{{ item.name }}</li>
-  }
+  <div class="search-container">
+    <div class="search-box">
+      <input
+        id="search-input"
+        type="text"
+        class="new-todo"
+        autofocus
+        placeholder="wroom wroom ..."
+        [value]="searchText"
+        (keypress)="changeText($event)"
+        (keyup.enter)="searchCar()"
+      />
+      <button id="search-clear" (click)="clearSearch()">clear</button>
+    </div>
+    <div class="results">
+      <div class="results-list">
+        @for (item of carData(); track item._id) {
+        <div class="result-item">
+          <!-- <img src="profile1.jpg" alt="Samuel Jacobs" class="profile-pic"> -->
+          <div class="result-text">
+            <p class="name" (click)="addCar(item)">{{ item.name }}</p>
+            <!--  <p class="status active">Active Now</p> -->
+          </div>
+        </div>
+        }
+      </div>
+    </div>
+  </div>
 </header>

@@ -1,28 +1,23 @@
 import { Component, computed, inject } from '@angular/core';
-import { CarService } from '../../services/car.service';
+import { CarmakesService } from '../../services/carmakes.service';
 
 @Component({
   selector: 'app-search-results',
   standalone: true,
-  imports: [],
-  providers: [CarService],
+  // providers: [CarmakesService],
   templateUrl: './search-results.component.html',
   styleUrl: './search-results.component.css',
 })
 export class SearchResultsComponent {
-  carService = inject(CarService);
 
-  // carData = this.carService.carSignal;
-  /* carData = computed(() => {
-    console.log(this.carService.carSignal());
-    return this.carService.carSignal();
-  }); */
+  carmakesService = inject(CarmakesService)
+
+  carmakes = computed( () => {
+    return this.carmakesService.carmakes()
+  })
 
   testClick() {
-    console.log(this.carService.carSignal());
+    console.log(this.carmakesService.carmakes())
+    console.log(this.carmakesService.getCar())
   }
-
-  /* ngOnInit(){
-    console.log(this.carData())
-  } */
 }

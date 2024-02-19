@@ -1,6 +1,14 @@
-<p>search-results works!</p>
-<button (click)="testClick()">CLICK</button>
-<!-- <p>{{carData()}}</p>
-@for (item of carData(); track $index) {
-    <li>{{item}}</li>
-} -->
+<!-- <div class="car-card">
+  <div class="car-make-name">Abarth</div>
+  <div class="selection-badge">3</div>
+</div> -->
+<div class="car-cards">
+  @for (carmake of carmakes(); track $index) {
+
+  <div class="car-card">
+    <div class="car-make-name">{{ carmake.name }}</div>
+    <div class="selection-badge">3</div>
+  </div>
+
+  }
+</div>

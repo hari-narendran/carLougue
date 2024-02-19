@@ -13,19 +13,6 @@ export class CarService {
 
   carSignal = signal<any>(['Test Car']);
 
-  fetchCars1(model: String) {
-    console.log('Car Search');
-    const url = `http://localhost:3000/search?q=${model}`;
-    this.http
-      .get<any>(url, {
-        responseType: 'json', // Explicitly set responseType for clarity
-      })
-      .subscribe((carsData) => {
-        console.log(carsData)
-        this.carSignal.update((cars) => carsData)
-      });
-  }
-
   fetchCars(searchText: String) {
     console.log('Search');
     const apiKey = '';
@@ -40,12 +27,12 @@ export class CarService {
         responseType: 'json', // Explicitly set responseType for clarity
       })
       .subscribe((carsData) => {
-        console.log(carsData)
-        this.carSignal.update((cars) => carsData)
+        console.log(carsData);
+        this.carSignal.update((cars) => carsData);
       });
   }
 
-  searchCars(searchText: string){
+  searchCars(searchText: string) {
     console.log('Car Search!');
     const url = `http://localhost:3000/search?q=${searchText}`;
     this.http
@@ -53,13 +40,13 @@ export class CarService {
         responseType: 'json', // Explicitly set responseType for clarity
       })
       .subscribe((carsData) => {
-        console.log(carsData)
-        this.carSignal.update((cars) => carsData)
+        console.log(carsData);
+        this.carSignal.update((cars) => carsData);
         //this.carSignal.set(carsData)
       });
   }
 
-  getAllCars(){
+  getAllCars() {
     console.log('Car Search!');
     const url = `http://localhost:3000/carmakes`;
     this.http
@@ -67,9 +54,13 @@ export class CarService {
         responseType: 'json', // Explicitly set responseType for clarity
       })
       .subscribe((carsData) => {
-        console.log(carsData)
-        this.carSignal.update((cars) => carsData)
+        console.log(carsData);
+        this.carSignal.update((cars) => carsData);
         //this.carSignal.set(carsData)
       });
+  }
+
+  clearCarSignal() {
+    this.carSignal.update((cars) => []);
   }
 }
