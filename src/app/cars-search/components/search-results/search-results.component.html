@@ -7,7 +7,11 @@
 
   <div class="car-card">
     <div class="car-make-name">{{ carmake.name }}</div>
-    <div class="selection-badge">3</div>
+    <div class="car-badges">
+      <div class="action-badge" (click)="addCar(carmake, $event)">+</div>
+      <div class="action-badge" (click)="removeCar(carmake, $event)">-</div>
+      <div class="selection-badge">{{ carmake.seenCount }}</div>
+    </div>
   </div>
 
   }

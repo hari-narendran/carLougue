@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, signal } from '@angular/core';
 import { catchError, switchMap, tap } from 'rxjs/operators';
+import { Car } from '../models/car.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -41,6 +42,9 @@ export class CarService {
       })
       .subscribe((carsData) => {
         console.log(carsData);
+        carsData.forEach((car:Car) => {
+          car.seenCount = 0;
+        });
         this.carSignal.update((cars) => carsData);
         //this.carSignal.set(carsData)
       });
