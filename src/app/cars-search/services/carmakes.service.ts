@@ -46,4 +46,8 @@ export class CarmakesService {
       return cars;
     });
   }
+
+  clearCars(){
+    this.carmakes.update(cars => []);
+  }
 }

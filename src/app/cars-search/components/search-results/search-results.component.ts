@@ -1,6 +1,7 @@
 import { Component, computed, inject } from '@angular/core';
 import { CarmakesService } from '../../services/carmakes.service';
 import { Car } from '../../models/car.interface';
+import { CarService } from '../../services/car.service';
 
 @Component({
   selector: 'app-search-results',
@@ -11,6 +12,7 @@ import { Car } from '../../models/car.interface';
 })
 export class SearchResultsComponent {
   carmakesService = inject(CarmakesService);
+  carService = inject(CarService);
 
   carmakes = computed(() => {
     return this.carmakesService.carmakes();
@@ -24,5 +26,9 @@ export class SearchResultsComponent {
   removeCar(carmake: Car, event: Event) {
     this.carmakesService.removeCar(carmake);
     console.log(this.carmakesService.getCar());
+  }
+
+  saveTrip() {
+    this.carService.saveTrip(this.carmakes());
   }
 }

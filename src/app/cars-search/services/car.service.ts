@@ -42,7 +42,7 @@ export class CarService {
       })
       .subscribe((carsData) => {
         console.log(carsData);
-        carsData.forEach((car:Car) => {
+        carsData.forEach((car: Car) => {
           car.seenCount = 0;
         });
         this.carSignal.update((cars) => carsData);
@@ -61,6 +61,22 @@ export class CarService {
         console.log(carsData);
         this.carSignal.update((cars) => carsData);
         //this.carSignal.set(carsData)
+      });
+  }
+
+  saveTrip(carsOnTrip: any) {
+    console.log('Save Trip');
+    const tripData = {
+      createdAt: Date.now(),
+      carMakes: carsOnTrip,
+    };
+    const url = `http://localhost:3000/saveTrips`;
+    const headers = { 'Content-Type': 'application/json' };
+    this.http
+      .post<any>(url, JSON.stringify(tripData), { headers })
+      .subscribe((data) => {
+        console.log(data);
+        this.clearCarSignal();
       });
   }
 

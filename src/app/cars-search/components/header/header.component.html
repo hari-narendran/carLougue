@@ -12,8 +12,9 @@
         (keypress)="changeText($event)"
         (keyup.enter)="searchCar()"
       />
-      <button id="search-clear" (click)="clearSearch()">clear</button>
+      <button id="search-clear" (click)="clearSearch()">X</button>
     </div>
+    @if (carData().length >1) {
     <div class="results">
       <div class="results-list">
         @for (item of carData(); track item._id) {
@@ -27,5 +28,6 @@
         }
       </div>
     </div>
+    }
   </div>
 </header>
