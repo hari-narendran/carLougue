@@ -1,4 +1,10 @@
-<div class="todoapp">
-    <app-todos-header></app-todos-header>
-    <app-search-results></app-search-results>
-  </div>
+<h1 class="app-title">CarLogue</h1>
+<div class="">
+  <mat-tab-group>
+    <mat-tab label="Create">
+      <app-todos-header></app-todos-header>
+      <app-search-results></app-search-results>
+    </mat-tab>
+    <mat-tab label="View"> <app-trip-details></app-trip-details> </mat-tab>
+  </mat-tab-group>
+</div>

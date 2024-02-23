@@ -1,0 +1,40 @@
+.car-cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .car-card {
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+    padding: 16px;
+    width: 200px;
+    margin: 8px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .car-make-name {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333333;
+  }
+  
+  .car-badges {
+    display: flex;
+    flex-direction: row;
+    width: 35%;
+    justify-content: space-between;
+  }
+  
+  .selection-badge {
+    background-color: #e76f51;
+    color: #ffffff;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  

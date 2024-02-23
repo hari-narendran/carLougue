@@ -4,6 +4,7 @@ html,
 body {
   margin: 0;
   padding: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
 button {
@@ -33,6 +34,16 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 300;
+}
+
+.app-title {
+  width: 100%;
+  top: -140px;
+  font-size: 80px !important;
+  font-weight: 200;
+  text-align: center;
+  color: #e76f51;
+  margin: 33px 0px 32px 0px!important;
 }
 
 :focus {
