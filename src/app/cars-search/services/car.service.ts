@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, signal } from '@angular/core';
 import { catchError, switchMap, tap } from 'rxjs/operators';
 import { Car } from '../models/car.interface';
+import { CarTrip } from '../models/carTrip.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -12,7 +13,8 @@ export class CarService {
   API_KEY = 'ql5XN29gNcX7waixhNMqjg==MivsPbboC6BYYP3E';
   // API_URL = `https://api.api-ninjas.com/v1/cars?model=${model}`;
 
-  carSignal = signal<any>(['Test Car']);
+  carSignal = signal<any>([]);
+  carTripSignal = signal<CarTrip[]>([{"createdAt": '02/01/2023', carMakes: []}])
 
   fetchCars(searchText: String) {
     console.log('Search');
@@ -77,6 +79,19 @@ export class CarService {
       .subscribe((data) => {
         console.log(data);
         this.clearCarSignal();
+      });
+  }
+
+  getAllTrips() {
+    console.log('Get car trips');
+    const url = `http://localhost:3000/getAllTrips`;
+    this.http
+      .get<any>(url, {
+        responseType: 'json', // Explicitly set responseType for clarity
+      })
+      .subscribe((tripsData) => {
+        console.log(tripsData);
+        this.carTripSignal.update((trips) => tripsData);
       });
   }
 
