@@ -1,6 +1,7 @@
 import { Component, computed, inject } from '@angular/core';
 import { CarService } from '../../services/car.service';
 import { CommonModule } from '@angular/common';
+import { CarTrip } from '../../models/carTrip.interface';
 
 @Component({
   selector: 'app-trip-details',
@@ -10,15 +11,21 @@ import { CommonModule } from '@angular/common';
   styleUrl: './trip-details.component.css',
 })
 export class TripDetailsComponent {
-
   carService = inject(CarService);
 
   tripData = computed(() => {
-    return this.carService.carTripSignal()
+    return this.carService.carTripSignal();
   });
 
-  ngOnInit(){
+  ngOnInit() {
+    this.fetchTrips();
+    console.log(this.tripData());
+  }
+  fetchTrips() {
     this.carService.getAllTrips();
-    console.log(this.tripData())
+  }
+  deleteTrip(trip: CarTrip) {
+    console.log(trip);
+    this.carService.deleteTrip(trip);
   }
 }

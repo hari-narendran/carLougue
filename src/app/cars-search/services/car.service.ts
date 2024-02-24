@@ -14,7 +14,9 @@ export class CarService {
   // API_URL = `https://api.api-ninjas.com/v1/cars?model=${model}`;
 
   carSignal = signal<any>([]);
-  carTripSignal = signal<CarTrip[]>([{"createdAt": '02/01/2023', carMakes: []}])
+  carTripSignal = signal<CarTrip[]>([
+    { createdAt: '02/01/2023', carMakes: [] },
+  ]);
 
   fetchCars(searchText: String) {
     console.log('Search');
@@ -92,6 +94,18 @@ export class CarService {
       .subscribe((tripsData) => {
         console.log(tripsData);
         this.carTripSignal.update((trips) => tripsData);
+      });
+  }
+
+  deleteTrip(trip: CarTrip) {
+    console.log('Delete Trip');
+    const url = 'http://localhost:3000/deleteTrip';
+    const headers = { 'Content-Type': 'application/json' };
+    this.http
+      .post<any>(url, JSON.stringify(trip), { headers })
+      .subscribe((data) => {
+        console.log(data);
+        this.getAllTrips();
       });
   }
 

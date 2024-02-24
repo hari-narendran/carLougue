@@ -1,6 +1,14 @@
+<div class="car-footer">
+  <button class="button-42" role="button" (click)="fetchTrips()">
+    Refresh
+  </button>
+</div>
 @for (trip of tripData(); track $index) {
 <div class="trip-cards">
-  <div>{{ trip.createdAt | date : "short" }}</div>
+  <div class="trip-header">
+    <span>{{ trip.createdAt | date : "medium" }}</span>
+    <span (click)="deleteTrip(trip)">X</span>
+  </div>
   <div class="car-cards">
     @for (carMake of trip.carMakes; track $index) {
     <div class="car-card">
