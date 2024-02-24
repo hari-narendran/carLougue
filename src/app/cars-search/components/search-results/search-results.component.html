@@ -1,0 +1,21 @@
+<!-- <div class="car-card">
+  <div class="car-make-name">Abarth</div>
+  <div class="selection-badge">3</div>
+</div> -->
+<div class="car-cards">
+  @for (carmake of carmakes(); track $index) {
+  <div class="car-card">
+    <div class="car-make-name">{{ carmake.name }}</div>
+    <div class="car-badges">
+      <div class="action-badge" (click)="addCar(carmake, $event)">+</div>
+      <div class="action-badge" (click)="removeCar(carmake, $event)">-</div>
+      <div class="selection-badge">{{ carmake.seenCount }}</div>
+    </div>
+  </div>
+  }
+</div>
+@if (carmakes().length > 0) {
+<div class="car-footer">
+  <button class="button-42" role="button" (click)="saveTrip()">Save</button>
+</div>
+}
